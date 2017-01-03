@@ -120,7 +120,7 @@ if defined?(ActiveRecord::Base)
               attribute_names.each_with_index do |attribute, index|
                 if attr_encrypted?(attribute) && encrypted_attributes[attribute.to_sym][:mode] == :single_iv_and_salt
                   args[index] = send("encrypt_#{attribute}", args[index])
-                  warn "DEPRECATION WARNING: This feature will be removed in the next major release."
+                  # there was a warning about deprecation
                   attribute_names[index] = encrypted_attributes[attribute.to_sym][:attribute]
                 end
               end
